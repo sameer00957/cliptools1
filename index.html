@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free browser-based video tools to preview, trim, and download your own videos.">
+<title>ClipTools — Free Online Video Tools</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">▶</span> ClipTools</a>
+  <nav><a href="#tools">Tools</a><a href="#how">How it works</a><a href="#privacy">Privacy</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="pill"><span class="dot"></span> SIMPLE · FREE · BROWSER-BASED</div>
+    <h1>Your videos.<br><span>Tools that just work.</span></h1>
+    <p>Preview, trim, and save videos you own or have permission to use — right in your browser.</p>
+    <a class="primary" href="#tools">Explore free tools <span>↓</span></a>
+    <div class="hero-note"><span>✓</span> Your selected file stays on your device in this demo.</div>
+  </section>
+
+  <section id="tools" class="section">
+    <div class="section-heading"><div><p class="eyebrow">THE TOOLKIT</p><h2>What do you want to do?</h2></div><p class="muted">Pick a tool to get started.</p></div>
+    <div class="tool-grid">
+      <button class="tool-card active" data-tool="download"><span class="tool-icon purple">↓</span><span class="tool-title">Video Preview & Download</span><span class="tool-desc">Open your own video and save a copy.</span><span class="tool-link">Open tool ↗</span></button>
+      <button class="tool-card" data-tool="trim"><span class="tool-icon blue">✂</span><span class="tool-title">Video Trimmer</span><span class="tool-desc">Choose a section to export as a clip.</span><span class="tool-link">Open tool ↗</span></button>
+      <button class="tool-card" data-tool="thumbnail"><span class="tool-icon orange">▧</span><span class="tool-title">Thumbnail Maker</span><span class="tool-desc">Capture a frame and save it as an image.</span><span class="tool-link">Open tool ↗</span></button>
+      <button class="tool-card" data-tool="gif"><span class="tool-icon green">GIF</span><span class="tool-title">Video to GIF</span><span class="tool-desc">Learn how to add GIF export in the next version.</span><span class="tool-link">View details ↗</span></button>
+    </div>
+  </section>
+
+  <section class="workspace" id="workspace">
+    <div class="workspace-head"><div><p class="eyebrow">WORKSPACE</p><h2 id="toolHeading">Video Preview & Download</h2></div><span class="local-badge">● Local processing demo</span></div>
+    <div class="upload-area" id="dropZone">
+      <div class="upload-symbol">↑</div>
+      <h3>Choose a video to get started</h3>
+      <p>MP4, WebM, or other formats supported by your browser</p>
+      <label class="primary file-label">Choose video<input id="videoInput" type="file" accept="video/*"></label>
+      <p class="tiny">Use videos you own or have permission to process.</p>
+    </div>
+    <div id="editor" class="editor hidden">
+      <div class="video-wrap"><video id="video" controls playsinline></video></div>
+      <div class="file-meta"><div><strong id="fileName">Video</strong><span id="fileInfo">Ready</span></div><button class="text-button" id="resetBtn">Choose another</button></div>
+      <div id="downloadPanel" class="tool-panel">
+        <p>Save the original selected file to your device.</p>
+        <button class="primary" id="downloadBtn">Download video ↓</button>
+      </div>
+      <div id="trimPanel" class="tool-panel hidden">
+        <div class="range-row"><label for="startTime">Start time (seconds)</label><input id="startTime" type="number" min="0" value="0" step="0.1"></div>
+        <div class="range-row"><label for="endTime">End time (seconds)</label><input id="endTime" type="number" min="0" value="5" step="0.1"></div>
+        <p class="notice">This starter version can preview a selected section. Exporting a new trimmed video requires a media-processing library or server, which is not included in this free demo.</p>
+        <button class="primary" id="previewTrimBtn">Preview selected section</button>
+      </div>
+      <div id="thumbnailPanel" class="tool-panel hidden">
+        <p>Pause the video on the frame you want, then capture it.</p>
+        <button class="primary" id="captureBtn">Capture current frame</button>
+        <canvas id="thumbCanvas"></canvas>
+        <a id="imageDownload" class="secondary hidden" download="cliptools-thumbnail.png">Save thumbnail PNG ↓</a>
+      </div>
+      <div id="gifPanel" class="tool-panel hidden">
+        <p>GIF export is planned for a future version. This demo does not upload or convert your file.</p>
+        <p class="notice">To add GIF export, a browser-side encoder or media-processing service is required.</p>
+      </div>
+    </div>
+    <div id="status" class="status" role="status"></div>
+  </section>
+
+  <section id="how" class="section steps">
+    <p class="eyebrow">HOW IT WORKS</p><h2>Three simple steps</h2>
+    <div class="step-grid"><div><span>01</span><h3>Select a file</h3><p>Choose a video stored on your device.</p></div><div><span>02</span><h3>Use a tool</h3><p>Preview, save the original, or capture a frame.</p></div><div><span>03</span><h3>Save your result</h3><p>Download your file when you're ready.</p></div></div>
+  </section>
+  <section id="privacy" class="privacy"><div class="privacy-icon">⌁</div><div><h2>Privacy-first demo</h2><p>Your selected video is handled locally by this page and is not uploaded to a server by this starter code. Browser support and file size may affect performance.</p></div></section>
+</main>
+<footer><a class="brand" href="#"><span class="brand-icon">▶</span> ClipTools</a><p>Free tools for videos you own or are allowed to use.</p><div><a href="#privacy">Privacy</a><a href="mailto:hello@example.com">Contact</a></div><small>© <span id="year"></span> ClipTools. Replace this demo contact email before publishing.</small></footer>
+<script src="app.js"></script>
+</body>
+</html>
